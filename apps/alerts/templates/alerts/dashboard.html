@@ -1,0 +1,38 @@
+{% extends "alerts/base.html" %}
+{% load forms_tags %}
+
+{% block stylesheets %}
+{{ block.super }}
+<link type="text/css" rel="stylesheet" href="{{ MEDIA_URL }}alerts/stylesheets/dashboard.css" />
+{% endblock %}
+
+{% block left %}
+<div class="module">
+<h2>Alerts</h2>
+{{ alert_table.as_html }}{% if alert %}
+
+<div class="toolbar">
+<a href="{% url alerts %}" class="add">Add an Alert</a>
+</div>{% endif %}
+</div>
+{% endblock %}
+
+{% block right %}
+<div class="module">
+<h2>{% if alert %}
+Edit {{ alert }}{% else %}
+Add an Alert{% endif %}
+</h2>
+
+<form action="" method="post">
+{% render_form alert_form %}
+{% csrf_token %}
+
+<div class="submit">
+<input type="submit" name="submit" value="Save Alert" />{% if alert %}
+<input type="submit" name="submit" value="Delete Alert" />{% endif %}
+</div>
+</form>
+</div>
+{% endblock %}
+
