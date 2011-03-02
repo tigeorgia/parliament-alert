@@ -1,0 +1,37 @@
+{% extends "categories/base.html" %}
+{% load forms_tags %}
+
+{% block stylesheets %}
+{{ block.super }}
+<link type="text/css" rel="stylesheet" href="{{ MEDIA_URL }}categories/stylesheets/dashboard.css" />
+{% endblock %}
+
+{% block left %}
+<div class="module">
+<h2>Categories</h2>
+{{ category_table.as_html }}{% if category %}
+
+<div class="toolbar">
+<a href="{% url categories %}" class="add">Add a Category</a>
+</div>{% endif %}
+</div>
+{% endblock %}
+
+{% block right %}
+<div class="module">
+<h2>{% if category %}
+Edit {{ category }}{% else %}
+Add a Category{% endif %}
+</h2>
+
+<form action="" method="post">
+{% render_form category_form %}
+{% csrf_token %}
+
+<div class="submit">
+<input type="submit" name="submit" value="Save Category" />{% if category %}
+<input type="submit" name="submit" value="Delete Category" />{% endif %}
+</div>
+</form>
+</div>
+{% endblock %}
