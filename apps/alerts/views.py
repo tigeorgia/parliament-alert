@@ -1,3 +1,4 @@
+from datetime import *
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
@@ -39,14 +40,15 @@ def alerts(req, pk=None):
         }, context_instance=RequestContext(req))
 
 # Send an alert
+@transaction.commit_on_success
 def send(req, pk):
     alert = get_object_or_404(ParliamentAlert, pk=pk)
 
     if req.method == "POST":
-        resp = utils.send_alert(alert)
+        response = utils.send_alert(alert)
         succ_cnt = 0
         fail_cnt = 0
-        for atmpt in resp["results"]:
+        for atmpt in response["results"]:
             contact, success = atmpt #Tuple unpacking
             if(success): 
                 succ_cnt += 1
@@ -55,10 +57,11 @@ def send(req, pk):
             # Save attempts to db
             a = AlertSendAttempt(contact=Contact.objects.get(pk=contact),alert=alert,success=success)
             a.save()
-        
+        if succ_cnt > 0:
+            alert.sent_date = datetime.now()
+            alert.save()
         req.session['succ'] = succ_cnt
         req.session['fail'] = fail_cnt
-        #TODO: Redirect to confirmation
         return redirect('alert_send', pk)
 
     else:

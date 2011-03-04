@@ -25,9 +25,10 @@ class App (AppBase):
         else:
             recipients = Contact.objects.filter(only_important=False)
         
-        recipients.filter(language=data["language"])
         categories = json.loads(data["categories"])
-        recipients.filter(categories__in=categories)
+        recipients = recipients.filter(language=data["language"]
+        ).filter(categories__in=categories
+        ).filter(is_active=True)
 
         # Deliver only to those to whom we have not delivered before
         # Not sure if this is well optimized.
@@ -36,9 +37,9 @@ class App (AppBase):
 # whose outcome was success and whose alert matches this alert.
 # The array contains the contact ids contained in those.
         #sent_to = [[atmpt.contact for atmpt in AlertSendAttempt.objects.filter(success=True).filter(alert=data["id"])]]
-        sent_to = AlertSendAttempt.objects.filter(success=True).filter(alert=data["id"])
+        sent_to = AlertSendAttempt.objects.filter(success=True).filter(alert=data["id"]).distinct().values_list('contact',flat=True)
         if(len(sent_to) > 0): # I.e. we have sent to someone before
-            recipients.exclude(id__in=sent_to)
+            recipients = recipients.exclude(id__in=sent_to)
         #Otherwise, we can send to everybody, so nothing to do.
 
         response = {}

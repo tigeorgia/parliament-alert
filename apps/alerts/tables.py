@@ -19,7 +19,6 @@ class AlertTable(Table):
     send = Column(link = _send_link,value = lambda c: "Send")
     lastSent = Column(value = lambda c: c.row.sent_date,name="Last sent")
 
-
     class Meta:
         order_by = "sent_date"
         per_page = 50
