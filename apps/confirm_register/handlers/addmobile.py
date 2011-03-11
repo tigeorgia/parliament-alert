@@ -53,14 +53,19 @@ class AddMobileHandler(KeywordHandler):
         #gsm_backend = Backend.objects.get(name='gsm')
         gsm_backend = Backend.objects.get(name='message_tester')
         # Check for duplicates
-        duplicates = Connection.objects.filter(identity=params[1])
+        connection_set = Connection.objects.filter(identity=params[1])
+        duplicates = connection_set.filter(contact__isnull=False)
         if(len(duplicates) > 0):
             return self.respond_error("4.Sorry, RapidSMS could not understand your message.")
-        # Create connection
-        conn = Connection(backend=gsm_backend,identity=params[1])
+        # Create connection, or if this is a re-register, just use (one of) the old one(s).
+        old_connections = connection_set.filter(contact__isnull=True)
+        if(len(old_connections) > 0):
+            conn = old_connections[0]
+        else:
+            conn = Connection(backend=gsm_backend,identity=params[1])
         # Create contact
         contact = Contact(name=params[0], language=params[2], is_active=False,
-                            only_important=params[3])
+                            only_important=params[3]=='True')
         contact.save()
         contact.categories=matched_cats
         contact.save()

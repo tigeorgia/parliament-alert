@@ -13,4 +13,3 @@ class RemoveHandler(KeywordHandler):
 
         self.respond("You have been removed from our lists.")
         self.msg.connection.contact.delete()
-        self.msg.connection.delete()
