@@ -6,21 +6,22 @@ from rapidsms.models import Contact
 # Store every alert that we send about Parliament
 class ParliamentAlert(models.Model):
     categories = models.ManyToManyField(Category,null=False)
-    text = models.TextField(max_length=140)
+    text_en = models.TextField(max_length=140)
+    text_ka = models.TextField(max_length=140)
     create_date = models.DateField(auto_now_add=True)
 
-    LANG_CHOICES = (
-            ('en', 'English'),
-            ('ka', 'Georgian'),
-            )
-    language = models.CharField(max_length=2,choices=LANG_CHOICES)
+#    LANG_CHOICES = (
+#            ('en', 'English'),
+#            ('ka', 'Georgian'),
+#            )
+#    language = models.CharField(max_length=2,choices=LANG_CHOICES)
     # Subscribers default to receive only the most important alerts
     is_important = models.BooleanField(default=False)
     sent = models.BooleanField(default=False,editable=False)
     sent_date = models.DateField(null=True,editable=False)
 
     def __unicode__(self):
-        return self.text[:20]
+        return self.text_en[:20]
 
 # Track every attempt at sending a message.
 # This may become unwieldy if the service becomes

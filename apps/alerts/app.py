@@ -18,16 +18,15 @@ class App (AppBase):
         return message.send()
 
     def ajax_POST_send_alert(self, params, data):
-    # Get all contacts matching this message's
-        # categories, language, and importance
+    # Get all active contacts matching this message's
+        # categories and importance
         if(data["is_important"] == "True"):
             recipients = Contact.objects.all()
         else:
             recipients = Contact.objects.filter(only_important=False)
         
         categories = json.loads(data["categories"])
-        recipients = recipients.filter(language=data["language"]
-        ).filter(categories__in=categories
+        recipients = recipients.filter(categories__in=categories
         ).filter(is_active=True)
 
         # Deliver only to those to whom we have not delivered before
@@ -46,21 +45,19 @@ class App (AppBase):
         response["was_sent"] = False
         response["results"] = [] # ids of Contacts to whom we attempted to send a message
         
-        try:
-            for recipient in recipients:
-                # Many of the RapidSMS backends don't define a return
-                # for their functions, so we assume "None" is success.
-                if self._send_message(recipient, data["text"]) is not False:
+        for recipient in recipients:
+            try:
+            # Many of the RapidSMS backends don't define a return
+            # for their functions, so we assume "None" is success.
+                if self._send_message(recipient, data[recipient.language]) is not False:
                     response["results"].append((recipient.id,True))
                 else:
                     response["results"].append((recipient.id,False))
-        except:
+            except:
             # At the moment, I don't see any exceptions that
             # we might care about in the functions that this
             # calls, but that might change later.
-            # Might have to move this inside the for-loop if non-
-            # fatal exceptions cause problems with completing send.
-            pass
+                pass
         # If we exit the loop without any exceptions, return successful sends
         if len(response["results"]) > 0:
             response["was_sent"] = True

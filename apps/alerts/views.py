@@ -65,8 +65,6 @@ def send(req, pk):
         return redirect('alert_send', pk)
 
     else:
-        #TODO: Display information about this alert's past sends
-        #TODO: Display form allowing sending of alert
         send_form = SendAlertForm()
         if 'succ' in req.session:
             succ = req.session['succ']

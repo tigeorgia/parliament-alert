@@ -5,7 +5,7 @@ from parliament.apps.categories.models import Category
 class AlertForm(forms.ModelForm):
     class Meta:
         model = ParliamentAlert
-        fields = ('text','categories','is_important','language')
+        fields = ('text_en','text_ka','categories','is_important')
 
 class SendAlertForm(forms.Form):
 #    text = forms.CharField(widget=forms.TextInput(attrs={"readonly":True}))

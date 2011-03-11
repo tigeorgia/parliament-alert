@@ -7,8 +7,8 @@ def _m2m2array(alert):
 # access app.py via ajax router
 def send_alert(alert):
     return call_router("alerts", "send_alert",
-        **{ "text": alert.text,
+        **{ "en": alert.text_en,
+            "ka": alert.text_ka,
             "categories": _m2m2array(alert),
             "is_important": unicode(alert.is_important),
-            "language": alert.language,
             "id": unicode(alert.id)})
