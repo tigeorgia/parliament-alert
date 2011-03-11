@@ -150,7 +150,7 @@ SITE_ID = 1
 
 # the default log settings are very noisy.
 LOG_LEVEL = "DEBUG"
-LOG_FILE = "rapidsms.log"
+LOG_FILE = "log/rapidsms.log"
 LOG_FORMAT = "[%(name)s]: %(message)s"
 LOG_SIZE = 8192  # 8192 bits = 8 kb
 LOG_BACKUPS = 256  # number of logs to keep
