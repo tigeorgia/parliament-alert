@@ -9,5 +9,13 @@ class Category(models.Model):
     #Comma-delimited keywords that will match this Category for subscription
     keywords = models.TextField(max_length=500,blank=True)
 
+    def matchesKeyword(self,strg):
+        keys = self.keywords.split(',')
+        for key in keys:
+            if strg == key:
+                return True
+        return False
+
     def __unicode__(self):
         return self.name
+
