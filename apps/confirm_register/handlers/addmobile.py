@@ -1,6 +1,7 @@
 from rapidsms.contrib.handlers.handlers.keyword import KeywordHandler
 from rapidsms.models import Connection, Backend, Contact
 from apps.categories.models import Category
+from django.utils.translation import ugettext as _
 
 class AddMobileHandler(KeywordHandler):
     """Allows for adding a contact other than the one that
@@ -11,7 +12,7 @@ class AddMobileHandler(KeywordHandler):
     keyword = "addmobile"
 
     def help(self):
-        self.respond("1.Sorry, RapidSMS could not understand your message.")
+        self.respond(_("1.Sorry, RapidSMS could not understand your message."))
 
     # This handler will fail sneakily by returning the
     # standard "I don't understand message."
@@ -29,13 +30,13 @@ class AddMobileHandler(KeywordHandler):
         params = text.split(' ', 4)
         # Check for proper formatting (pretty strictly)
 # TODO: Better multilingual support
-        if((len(params) < 5 or len(params[1]) != 8 or len(params[2]) != 2) 
-           or not params[1].isdigit() or 
+        if((len(params) < 5 or len(params[1]) != 12 or len(params[2]) != 2) 
+           or 
            (params[2] != "en" and params[2] != "ka") or 
            (params[3] != "False" and params[3] != "True")):
-            return self.respond_error("2.Sorry, RapidSMS could not understand your message.")
+            return self.respond_error(_("2.Sorry, RapidSMS could not understand your message."))
         
-        keywords = params[4].split(' ')
+        keywords = params[4].lower().split(' ')
         cats = Category.objects.all()
         matched_cats = []
         for key in keywords:
@@ -46,17 +47,17 @@ class AddMobileHandler(KeywordHandler):
                     matched_cats.append(cat)
                     cats = cats.exclude(id=cat.id)
         if len(matched_cats) == 0:
-            return self.respond_error("3.Sorry, RapidSMS could not understand your message.")
+            return self.respond_error(_("3.Sorry, RapidSMS could not understand your message."))
 
         # Obviously, the GSM backend must be enabled for this to work
         # but since it's not at the moment, we'll use bucket.
-        #gsm_backend = Backend.objects.get(name='gsm')
-        gsm_backend = Backend.objects.get(name='message_tester')
+        gsm_backend = Backend.objects.get(name='gsm')
+        #gsm_backend = Backend.objects.get(name='message_tester')
         # Check for duplicates
         connection_set = Connection.objects.filter(identity=params[1])
         duplicates = connection_set.filter(contact__isnull=False)
         if(len(duplicates) > 0):
-            return self.respond_error("4.Sorry, RapidSMS could not understand your message.")
+            return self.respond_error(_("4.Sorry, RapidSMS could not understand your message."))
         # Create connection, or if this is a re-register, just use (one of) the old one(s).
         old_connections = connection_set.filter(contact__isnull=True)
         if(len(old_connections) > 0):
@@ -74,9 +75,9 @@ class AddMobileHandler(KeywordHandler):
         contact.save()
 
         try:
-            contact.message("Please confirm that you wish to be added to the TI Georgia " +\
-                    "Parliamentary Alert Service by replying 'confirm' to this message.")
+            contact.message(_("Please confirm that you wish to be added to the TI Georgia " +\
+                    "Parliamentary Alert Service by replying 'confirm' to this message."))
         except MessageSendingError:
-            return self.respond_error("Problems sending confirmation message.")
+            return self.respond_error(_("Problems sending confirmation message."))
             
-        return self.respond("Contact successfully added; confirmation sent.")
+        return self.respond(_("Contact successfully added; confirmation sent."))

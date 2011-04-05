@@ -4,3 +4,4 @@
 migration/*
 *.log.*
 settings.py
+*.mo

@@ -53,7 +53,23 @@ INSTALLED_BACKENDS = {
     #},
     "message_tester": {
         "ENGINE": "rapidsms.backends.bucket",
-    }
+    },
+    "email": {
+        "ENGINE": "rapidsms.backends.email",
+        "smtp_host": "parliament.transparency.ge",
+        "smtp_port": 25,
+        "imap_host": "parliament.transparency.ge",
+        "imap_port": 143,
+        "username": "alerts@parliament.transparency.ge",
+        "password": "xW3yAopL",
+        "use_tls": "False",
+    },# Hacking RapidSMS because our hosting provider is stupid and
+                            # can't get secure IMAP working.
+    "gsm": {
+        "ENGINE": "rapidsms.backends.gsm",
+        "PORT": "/dev/ttyUSB0",
+        "BAUDRATE": "115200",
+    },
 }
 
 
