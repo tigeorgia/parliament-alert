@@ -16,6 +16,9 @@ class Category(models.Model):
                 return True
         return False
 
+    def keyword_array(self):
+        return self.keywords.split(',')
+
     def __unicode__(self):
         return self.name
 

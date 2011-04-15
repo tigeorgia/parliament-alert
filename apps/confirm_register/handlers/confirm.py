@@ -16,9 +16,9 @@ class ConfirmHandler(KeywordHandler):
                 _("You must sign up before you can confirm!"))
 
         if self.msg.connection.contact.is_active == True:
-            return self.respond_error("You are already subscribed.")
+            return self.respond_error(_("You are already subscribed."))
 
         self.msg.connection.contact.is_active = True
         self.msg.connection.contact.save()
 
-        return self.respond(_("Your subscription has been confirmed. Send LEAVE to unsubscribe."))
+        return self.respond(_("Your subscription has been confirmed. Send LEAVE ALL to unsubscribe."))
