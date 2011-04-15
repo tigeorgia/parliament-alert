@@ -5,15 +5,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: TI RapidSMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-05 11:23+0400\n"
-"PO-Revision-Date: 2011-04-05 12:16+0400\n"
-"Last-Translator: Ruso <rusudan.khotivari@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2011-04-14 15:13+0400\n"
+"PO-Revision-Date: 2011-04-14 15:14+0400\n"
+"Last-Translator: Derek <derek@transparency.ge>\n"
+"Language-Team: TI Georgia <derek@transparency.ge>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Georgian\n"
+"X-Poedit-Country: GEORGIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #: settings.py:30
 msgid "Georgian"
@@ -55,15 +58,51 @@ msgstr "kontaqtis damateba  ganxorcielda warmatebiT.damadasturebeli werili gagza
 msgid "You must sign up before you can confirm!"
 msgstr "imisaTvis rom daadasturo, jer daregistrirdi!"
 
-#: apps/confirm_register/handlers/confirm.py:24
-msgid "Your subscription has been confirmed. Send LEAVE to unsubscribe."
-msgstr "Tqveni gamowera dadasturebulia.amowerisaTvis gaagzavneT LEAVE."
+#: apps/confirm_register/handlers/confirm.py:19
+msgid "You are already subscribed."
+msgstr "Tqven ukve SemogvierTdiT."
 
-#: apps/confirm_register/handlers/remove.py:13
+#: apps/confirm_register/handlers/confirm.py:24
+msgid "Your subscription has been confirmed. Send LEAVE ALL to unsubscribe."
+msgstr "Tqveni gamowera dadasturebulia.amowerisaTvis gaagzavneT datoveT yvela."
+
+#: apps/registration/handlers/language.py:27
+msgid "To set your language, send LANGUAGE CODE. Send LANGUAGE KA for Georgian, LANGUAGE EN for English."
+msgstr "Enis dasadgenad, gamoagzavne enis kodi. ENA KA qarTuli enisTvis, ENA EN inglisurisTvis."
+
+#: apps/registration/handlers/language.py:31
+msgid "You must send JOIN before you can set your language preference."
+msgstr "enis SerCevamde, gamoagzavne SemogvierTdi"
+
+#: apps/registration/handlers/language.py:41
+msgid "I will speak to you in English."
+msgstr "gamoviyeneb qarTuls enas, TqvenTan saubrisas."
+
+#: apps/registration/handlers/language.py:43
+msgid "I only speak Georgian and English. Send LANGUAGE KA for Georgian, LANGUAGE EN for English."
+msgstr "mxolod qarTulad da inglisurad vsaubrob. gamoagzavne ENA KA qarTulisTvis, ENA EN inglisurisTvis."
+
+#: apps/registration/handlers/register.py:69
+msgid "We couldn't find any of the committees you entered. Here are some examples to get you started:"
+msgstr "Cven ver SevZeliT Tqvens mier SerCeuli komitetis moZebna. Semdegi magaliTebi dagexmarebaT dawyebaSi:"
+
+#: apps/registration/handlers/register.py:74
+msgid "Thank you for registering! To stop receiving updates, send LEAVE COMMITTEE, for example LEAVE ECONOMY or LEAVE ALL."
+msgstr "madlobT daregistrirebisTvis! imisaTvis rom SegiwydeT ganaxlebebis miReba, gaagzavneT \"datovet komiteti\" an \"datovet yvela\". magaliTad, datoveT ekonomika"
+
+#: apps/registration/handlers/remove.py:23
+msgid "To delete your subscription, send LEAVE COMMITTEE, for example LEAVE ECONOMY, or LEAVE ALL."
+msgstr "imisaTvis, rom amogSaloT siidan, gaagzavneT datoveba da komitetis saxeli, magaliTad datoveba ekonomika, an datoveba yvela"
+
+#: apps/registration/handlers/remove.py:28
 msgid "You aren't signed up!"
 msgstr "Tqven ar xarT daregistrirebuli!"
 
-#: apps/confirm_register/handlers/remove.py:15
+#: apps/registration/handlers/remove.py:35
 msgid "You have been removed from our lists."
 msgstr "Tqven aRar xarT Cvens siaSi."
+
+#: apps/registration/handlers/remove.py:56
+msgid "We couldn't find any of the committees you entered. Here are some possibilities:"
+msgstr "Cven ver SevZeliT Tqvens mier SerCeuli komitetis moZebna. aq aris ramodenime SesaZlo varianti:"
 
