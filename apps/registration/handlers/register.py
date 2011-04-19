@@ -33,7 +33,7 @@ class RegisterHandler(KeywordHandler):
         if en_or_ka(self.en_keyword,self.msg.text) == "en":
             self.respond("To sign up, send JOIN <COMMITTEE>, e.g. JOIN ECONOMY. To subscribe to all committees, send JOIN ALL.")
         else:
-            self.respond("imistvis rom daregistrirdet, gaagzavnet GAMOICERE KOMITETI, magalitad GAMOICERE EKONOMIKA. imisatvis rom sheurtde yvela komitets, gaagzavne GAMOICERE YVELAS")
+            self.respond("imistvis rom daregistrirdet, gaagzavnet GAMOICERE KOMITETI, magalitad GAMOICERE EKONOMIKA. imisatvis rom sheurtde yvela komitets, gaagzavne GAMOICERE YVELA")
 
     def handle(self, text):
         if self.msg.connection.contact == None: # Generate contact if first signup

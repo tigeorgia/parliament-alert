@@ -29,7 +29,6 @@ class AddMobileHandler(KeywordHandler):
         # Slice text into array by spaces
         params = text.split(' ', 4)
         # Check for proper formatting (pretty strictly)
-# TODO: Better multilingual support
         if((len(params) < 5 or len(params[1]) != 12 or len(params[2]) != 2) 
            or 
            (params[2] != "en" and params[2] != "ka") or 
@@ -41,6 +40,9 @@ class AddMobileHandler(KeywordHandler):
         matched_cats = []
         for key in keywords:
             #compare key to Category match strings.
+            if key.upper == 'ALL':
+                matched_cats = Category.objects.all()
+                break
             for cat in cats:
             # If match, add to category ids, remove from queryset
                 if cat.matchesKeyword(key):
@@ -49,8 +51,6 @@ class AddMobileHandler(KeywordHandler):
         if len(matched_cats) == 0:
             return self.respond_error(_("3.Sorry, RapidSMS could not understand your message."))
 
-        # Obviously, the GSM backend must be enabled for this to work
-        # but since it's not at the moment, we'll use bucket.
         gsm_backend = Backend.objects.get(name='gsm')
         #gsm_backend = Backend.objects.get(name='message_tester')
         # Check for duplicates
@@ -75,8 +75,7 @@ class AddMobileHandler(KeywordHandler):
         contact.save()
 
         try:
-            contact.message(_("Please confirm that you wish to be added to the TI Georgia " +\
-                    "Parliamentary Alert Service by replying 'confirm' to this message."))
+            contact.message(_("Please confirm that you wish to be added to the TI Georgia Parliamentary Alert Service by replying 'confirm' to this message."))
         except MessageSendingError:
             return self.respond_error(_("Problems sending confirmation message."))
             
