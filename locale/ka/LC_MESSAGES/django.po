@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TI RapidSMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-14 15:13+0400\n"
-"PO-Revision-Date: 2011-04-14 15:14+0400\n"
-"Last-Translator: Derek <derek@transparency.ge>\n"
+"POT-Creation-Date: 2011-04-19 10:41+0400\n"
+"PO-Revision-Date: 2011-04-19 11:22+0400\n"
+"Last-Translator: Ruso <rusudan.khotivari@gmail.com>\n"
 "Language-Team: TI Georgia <derek@transparency.ge>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,11 +18,11 @@ msgstr ""
 "X-Poedit-Country: GEORGIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: settings.py:30
+#: settings.py:33
 msgid "Georgian"
 msgstr "qarTuli"
 
-#: settings.py:31
+#: settings.py:34
 msgid "English"
 msgstr "inglisuri"
 
@@ -43,14 +43,14 @@ msgid "4.Sorry, RapidSMS could not understand your message."
 msgstr "4.bodiSi,swrafma SMSma ver SeZlo Tqveni gzavnilis gageba."
 
 #: apps/confirm_register/handlers/addmobile.py:78
-msgid "Please confirm that you wish to be added to the TI Georgia "
-msgstr "gTxovT daadasturoT rom gsurT SemouerTdeT TI saqarTvelos"
+msgid "Please confirm that you wish to be added to the TI Georgia Parliamentary Alert Service by replying 'confirm' to this message."
+msgstr "gTxovT daadasturoT rom gsurT SemouerTdeT TI saqarTvelos saparlamento gamafrTxilebel serviss am gzavnilze \"vadastureb\"  Rilakze daWeriT"
 
-#: apps/confirm_register/handlers/addmobile.py:81
+#: apps/confirm_register/handlers/addmobile.py:80
 msgid "Problems sending confirmation message."
 msgstr "problemebi damadasturebeli werilis gagzavnisas."
 
-#: apps/confirm_register/handlers/addmobile.py:83
+#: apps/confirm_register/handlers/addmobile.py:82
 msgid "Contact successfully added; confirmation sent."
 msgstr "kontaqtis damateba  ganxorcielda warmatebiT.damadasturebeli werili gagzavnilia."
 
@@ -76,17 +76,17 @@ msgstr "enis SerCevamde, gamoagzavne SemogvierTdi"
 
 #: apps/registration/handlers/language.py:41
 msgid "I will speak to you in English."
-msgstr "gamoviyeneb qarTuls enas, TqvenTan saubrisas."
+msgstr "gamoviyeneb qarTul enas, TqvenTan saubrisas."
 
 #: apps/registration/handlers/language.py:43
 msgid "I only speak Georgian and English. Send LANGUAGE KA for Georgian, LANGUAGE EN for English."
 msgstr "mxolod qarTulad da inglisurad vsaubrob. gamoagzavne ENA KA qarTulisTvis, ENA EN inglisurisTvis."
 
-#: apps/registration/handlers/register.py:69
+#: apps/registration/handlers/register.py:72
 msgid "We couldn't find any of the committees you entered. Here are some examples to get you started:"
 msgstr "Cven ver SevZeliT Tqvens mier SerCeuli komitetis moZebna. Semdegi magaliTebi dagexmarebaT dawyebaSi:"
 
-#: apps/registration/handlers/register.py:74
+#: apps/registration/handlers/register.py:77
 msgid "Thank you for registering! To stop receiving updates, send LEAVE COMMITTEE, for example LEAVE ECONOMY or LEAVE ALL."
 msgstr "madlobT daregistrirebisTvis! imisaTvis rom SegiwydeT ganaxlebebis miReba, gaagzavneT \"datovet komiteti\" an \"datovet yvela\". magaliTad, datoveT ekonomika"
 
@@ -94,15 +94,18 @@ msgstr "madlobT daregistrirebisTvis! imisaTvis rom SegiwydeT ganaxlebebis miReba
 msgid "To delete your subscription, send LEAVE COMMITTEE, for example LEAVE ECONOMY, or LEAVE ALL."
 msgstr "imisaTvis, rom amogSaloT siidan, gaagzavneT datoveba da komitetis saxeli, magaliTad datoveba ekonomika, an datoveba yvela"
 
-#: apps/registration/handlers/remove.py:28
-msgid "You aren't signed up!"
-msgstr "Tqven ar xarT daregistrirebuli!"
-
-#: apps/registration/handlers/remove.py:35
+#: apps/registration/handlers/remove.py:40
+#: apps/registration/handlers/remove.py:65
 msgid "You have been removed from our lists."
 msgstr "Tqven aRar xarT Cvens siaSi."
 
-#: apps/registration/handlers/remove.py:56
+#: apps/registration/handlers/remove.py:61
 msgid "We couldn't find any of the committees you entered. Here are some possibilities:"
 msgstr "Cven ver SevZeliT Tqvens mier SerCeuli komitetis moZebna. aq aris ramodenime SesaZlo varianti:"
 
+#: apps/registration/handlers/remove.py:69
+msgid "Successfully removed subscriptions: "
+msgstr "gadmowerebi warmaTebiT aris waSlili:"
+
+#~ msgid "You aren't signed up!"
+#~ msgstr "Tqven ar xarT daregistrirebuli!"
