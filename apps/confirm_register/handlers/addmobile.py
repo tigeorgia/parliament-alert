@@ -40,7 +40,7 @@ class AddMobileHandler(KeywordHandler):
         matched_cats = []
         for key in keywords:
             #compare key to Category match strings.
-            if key.upper == 'ALL':
+            if key.upper() == 'ALL':
                 matched_cats = Category.objects.all()
                 break
             for cat in cats:
