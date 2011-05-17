@@ -1,5 +1,6 @@
 from rapidsms.contrib.handlers.handlers.keyword import KeywordHandler
 from rapidsms.models import Connection, Backend, Contact
+from rapidsms.errors import MessageSendingError
 from apps.categories.models import Category
 from django.utils.translation import ugettext as _
 
@@ -35,7 +36,7 @@ class AddMobileHandler(KeywordHandler):
            (params[3] != "False" and params[3] != "True")):
             return self.respond_error(_("2.Sorry, RapidSMS could not understand your message."))
         
-        keywords = params[4].lower().split(' ')
+        keywords = params[4].lower().split(', ')
         cats = Category.objects.all()
         matched_cats = []
         for key in keywords:
@@ -77,6 +78,6 @@ class AddMobileHandler(KeywordHandler):
         try:
             contact.message(_("Please confirm that you wish to be added to the TI Georgia Parliamentary Alert Service by replying 'confirm' to this message."))
         except MessageSendingError:
-            return self.respond_error(_("Problems sending confirmation message."))
+            return self.respond_error(_("Problems sending confirmation message."+repr(MessageSendingError)))
             
         return self.respond(_("Contact successfully added; confirmation sent."))
