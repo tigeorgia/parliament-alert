@@ -44,7 +44,7 @@ msgstr "4.bodiSi,swrafma SMSma ver SeZlo Tqveni gzavnilis gageba."
 
 #: apps/confirm_register/handlers/addmobile.py:78
 msgid "Please confirm that you wish to be added to the TI Georgia Parliamentary Alert Service by replying 'confirm' to this message."
-msgstr "gTxovT daadasturoT rom gsurT SemouerTdeT TI saqarTvelos saparlamento gamafrTxilebel serviss am gzavnilze \"vadastureb\"  Rilakze daWeriT"
+msgstr "gTxovt daadasturoT rom gsurT SemouerTdeT saqarTvelos saparlamento gamafrTxilebel serviss gzavnilze \"vadastureb\"-is gagzvniT"
 
 #: apps/confirm_register/handlers/addmobile.py:80
 msgid "Problems sending confirmation message."
