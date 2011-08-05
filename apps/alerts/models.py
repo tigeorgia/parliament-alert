@@ -6,8 +6,8 @@ from rapidsms.models import Contact
 # Store every alert that we send about Parliament
 class ParliamentAlert(models.Model):
     categories = models.ManyToManyField(Category,null=False)
-    text_en = models.TextField(max_length=140)
-    text_ka = models.TextField(max_length=140)
+    text_en = models.CharField(max_length=150)
+    text_ka = models.CharField(max_length=150)
     create_date = models.DateField(auto_now_add=True)
 
 #    LANG_CHOICES = (

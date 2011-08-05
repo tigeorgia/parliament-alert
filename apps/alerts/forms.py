@@ -6,6 +6,10 @@ class AlertForm(forms.ModelForm):
     class Meta:
         model = ParliamentAlert
         fields = ('text_en','text_ka','categories','is_important')
+        widgets = {
+            'text_en': forms.Textarea(attrs={'cols':40, 'rows': 12}),
+            'text_ka': forms.Textarea(attrs={'cols':40, 'rows': 12}),
+        }
 
 class SendAlertForm(forms.Form):
 #    text = forms.CharField(widget=forms.TextInput(attrs={"readonly":True}))
