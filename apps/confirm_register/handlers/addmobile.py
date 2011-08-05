@@ -3,6 +3,7 @@ from rapidsms.models import Connection, Backend, Contact
 from rapidsms.errors import MessageSendingError
 from apps.categories.models import Category
 from django.utils.translation import ugettext as _
+from rapidsms.messages.outgoing import OutgoingMessage
 
 class AddMobileHandler(KeywordHandler):
     """Allows for adding a contact other than the one that
