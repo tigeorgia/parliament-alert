@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TI RapidSMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-19 10:41+0400\n"
+"POT-Creation-Date: 2011-06-08 14:31+0400\n"
 "PO-Revision-Date: 2011-04-19 11:22+0400\n"
 "Last-Translator: Ruso <rusudan.khotivari@gmail.com>\n"
 "Language-Team: TI Georgia <derek@transparency.ge>\n"
@@ -26,7 +26,7 @@ msgstr "qarTuli"
 msgid "English"
 msgstr "inglisuri"
 
-#: apps/confirm_register/handlers/addmobile.py:15
+#: apps/confirm_register/handlers/addmobile.py:16
 msgid "1.Sorry, RapidSMS could not understand your message."
 msgstr "1.bodiSi,swrafma SMSma ver SeZlo Tqveni gzavnilis gageba"
 
@@ -34,25 +34,31 @@ msgstr "1.bodiSi,swrafma SMSma ver SeZlo Tqveni gzavnilis gageba"
 msgid "2.Sorry, RapidSMS could not understand your message."
 msgstr "2.bodiSi,swrafma SMSma ver SeZlo Tqveni gzavnilis gageba."
 
-#: apps/confirm_register/handlers/addmobile.py:50
+#: apps/confirm_register/handlers/addmobile.py:53
 msgid "3.Sorry, RapidSMS could not understand your message."
 msgstr "3.bodiSi,swrafma SMSma ver SeZlo Tqveni gzavnilis gageba."
 
-#: apps/confirm_register/handlers/addmobile.py:60
+#: apps/confirm_register/handlers/addmobile.py:61
 msgid "4.Sorry, RapidSMS could not understand your message."
 msgstr "4.bodiSi,swrafma SMSma ver SeZlo Tqveni gzavnilis gageba."
 
-#: apps/confirm_register/handlers/addmobile.py:78
-msgid "Please confirm that you wish to be added to the TI Georgia Parliamentary Alert Service by replying 'confirm' to this message."
-msgstr "gTxovt daadasturoT rom gsurT SemouerTdeT saqarTvelos saparlamento gamafrTxilebel serviss gzavnilze \"vadastureb\"-is gagzvniT"
+#: apps/confirm_register/handlers/addmobile.py:79
+msgid ""
+"Please confirm that you wish to be added to the TI Georgia Parliamentary "
+"Alert Service by replying 'confirm' to this message."
+msgstr ""
+"gTxovt daadasturoT rom gsurT SemouerTdeT saqarTvelos saparlamento "
+"gamafrTxilebel serviss gzavnilze \"vadastureb\"-is gagzvniT"
 
-#: apps/confirm_register/handlers/addmobile.py:80
+#: apps/confirm_register/handlers/addmobile.py:83
 msgid "Problems sending confirmation message."
 msgstr "problemebi damadasturebeli werilis gagzavnisas."
 
-#: apps/confirm_register/handlers/addmobile.py:82
+#: apps/confirm_register/handlers/addmobile.py:85
 msgid "Contact successfully added; confirmation sent."
-msgstr "kontaqtis damateba  ganxorcielda warmatebiT.damadasturebeli werili gagzavnilia."
+msgstr ""
+"kontaqtis damateba  ganxorcielda warmatebiT.damadasturebeli werili "
+"gagzavnilia."
 
 #: apps/confirm_register/handlers/confirm.py:16
 msgid "You must sign up before you can confirm!"
@@ -67,8 +73,12 @@ msgid "Your subscription has been confirmed. Send LEAVE ALL to unsubscribe."
 msgstr "Tqveni gamowera dadasturebulia.amowerisaTvis gaagzavneT datoveT yvela."
 
 #: apps/registration/handlers/language.py:27
-msgid "To set your language, send LANGUAGE CODE. Send LANGUAGE KA for Georgian, LANGUAGE EN for English."
-msgstr "Enis dasadgenad, gamoagzavne enis kodi. ENA KA qarTuli enisTvis, ENA EN inglisurisTvis."
+msgid ""
+"To set your language, send LANGUAGE CODE. Send LANGUAGE KA for Georgian, "
+"LANGUAGE EN for English."
+msgstr ""
+"Enis dasadgenad, gamoagzavne enis kodi. ENA KA qarTuli enisTvis, ENA EN "
+"inglisurisTvis."
 
 #: apps/registration/handlers/language.py:31
 msgid "You must send JOIN before you can set your language preference."
@@ -79,20 +89,37 @@ msgid "I will speak to you in English."
 msgstr "gamoviyeneb qarTul enas, TqvenTan saubrisas."
 
 #: apps/registration/handlers/language.py:43
-msgid "I only speak Georgian and English. Send LANGUAGE KA for Georgian, LANGUAGE EN for English."
-msgstr "mxolod qarTulad da inglisurad vsaubrob. gamoagzavne ENA KA qarTulisTvis, ENA EN inglisurisTvis."
+msgid ""
+"I only speak Georgian and English. Send LANGUAGE KA for Georgian, LANGUAGE "
+"EN for English."
+msgstr ""
+"mxolod qarTulad da inglisurad vsaubrob. gamoagzavne ENA KA qarTulisTvis, ENA "
+"EN inglisurisTvis."
 
 #: apps/registration/handlers/register.py:72
-msgid "We couldn't find any of the committees you entered. Here are some examples to get you started:"
-msgstr "Cven ver SevZeliT Tqvens mier SerCeuli komitetis moZebna. Semdegi magaliTebi dagexmarebaT dawyebaSi:"
+msgid ""
+"We couldn't find any of the committees you entered. Here are some examples "
+"to get you started:"
+msgstr ""
+"Cven ver SevZeliT Tqvens mier SerCeuli komitetis moZebna. Semdegi magaliTebi "
+"dagexmarebaT dawyebaSi:"
 
 #: apps/registration/handlers/register.py:77
-msgid "Thank you for registering! To stop receiving updates, send LEAVE COMMITTEE, for example LEAVE ECONOMY or LEAVE ALL."
-msgstr "madlobT daregistrirebisTvis! imisaTvis rom SegiwydeT ganaxlebebis miReba, gaagzavneT \"datovet komiteti\" an \"datovet yvela\". magaliTad, datoveT ekonomika"
+msgid ""
+"Thank you for registering! To stop receiving updates, send LEAVE COMMITTEE, "
+"for example LEAVE ECONOMY or LEAVE ALL."
+msgstr ""
+"madlobT daregistrirebisTvis! imisaTvis rom SegiwydeT ganaxlebebis miReba, "
+"gaagzavneT \"datovet komiteti\" an \"datovet yvela\". magaliTad, datoveT "
+"ekonomika"
 
 #: apps/registration/handlers/remove.py:23
-msgid "To delete your subscription, send LEAVE COMMITTEE, for example LEAVE ECONOMY, or LEAVE ALL."
-msgstr "imisaTvis, rom amogSaloT siidan, gaagzavneT datoveba da komitetis saxeli, magaliTad datoveba ekonomika, an datoveba yvela"
+msgid ""
+"To delete your subscription, send LEAVE COMMITTEE, for example LEAVE "
+"ECONOMY, or LEAVE ALL."
+msgstr ""
+"imisaTvis, rom amogSaloT siidan, gaagzavneT datoveba da komitetis saxeli, "
+"magaliTad datoveba ekonomika, an datoveba yvela"
 
 #: apps/registration/handlers/remove.py:40
 #: apps/registration/handlers/remove.py:65
@@ -100,8 +127,12 @@ msgid "You have been removed from our lists."
 msgstr "Tqven aRar xarT Cvens siaSi."
 
 #: apps/registration/handlers/remove.py:61
-msgid "We couldn't find any of the committees you entered. Here are some possibilities:"
-msgstr "Cven ver SevZeliT Tqvens mier SerCeuli komitetis moZebna. aq aris ramodenime SesaZlo varianti:"
+msgid ""
+"We couldn't find any of the committees you entered. Here are some "
+"possibilities:"
+msgstr ""
+"Cven ver SevZeliT Tqvens mier SerCeuli komitetis moZebna. aq aris ramodenime "
+"SesaZlo varianti:"
 
 #: apps/registration/handlers/remove.py:69
 msgid "Successfully removed subscriptions: "
