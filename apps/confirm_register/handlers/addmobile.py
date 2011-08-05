@@ -73,11 +73,12 @@ class AddMobileHandler(KeywordHandler):
         contact.save()
         conn.contact = contact
         conn.save()
-        contact.save()
 
         try:
-            contact.message(_("Please confirm that you wish to be added to the TI Georgia Parliamentary Alert Service by replying 'confirm' to this message."))
+            text = _("Please confirm that you wish to be added to the TI Georgia Parliamentary Alert Service by replying 'confirm' to this message.")
+            message = OutgoingMessage(contact.default_connection,text)
+            result = message.send()
         except MessageSendingError:
-            return self.respond_error(_("Problems sending confirmation message."+repr(MessageSendingError)))
+            return self.respond_error(_("Problems sending confirmation message."+unicode(MessageSendingError.args)))
             
         return self.respond(_("Contact successfully added; confirmation sent."))

@@ -1,10 +1,11 @@
 from rapidsms.apps.base import AppBase
+from rapidsms.log.mixin import LoggerMixin
 from rapidsms.models import Connection, Contact
 from rapidsms.messages.outgoing import OutgoingMessage
 from parliament.apps.alerts.models import ParliamentAlert, AlertSendAttempt
 import json
 
-class App (AppBase):
+class App (AppBase, LoggerMixin):
     """ Receives outgoing messages from the WebUI, then
         sends them to all Contacts with matching categories
         language, and importance preferences. """
@@ -47,17 +48,15 @@ class App (AppBase):
         
         for recipient in recipients:
             try:
-            # Many of the RapidSMS backends don't define a return
-            # for their functions, so we assume "None" is success.
+                # Many of the RapidSMS backends don't define a return
+                # for their functions, so we assume "None" is success.
                 if self._send_message(recipient, data[recipient.language]) is not False:
                     response["results"].append((recipient.id,True))
                 else:
                     response["results"].append((recipient.id,False))
-            except:
-            # At the moment, I don't see any exceptions that
-            # we might care about in the functions that this
-            # calls, but that might change later.
-                pass
+            except Exception as e:
+                response["results"].append((recipient.id,False))
+                self.info(u"Exception when sending alert"+unicode(e.args))
         # If we exit the loop without any exceptions, return successful sends
         if len(response["results"]) > 0:
             response["was_sent"] = True
