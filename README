@@ -1,1 +1,9 @@
-Creates a system of alerts regarding various topics that can be sent to subscribers.
+Allows the creation of what are essentially mailing lists using RapidSMS. Features:
+-Define categories for messages
+-Assign a message to one or more categories
+-Allow users to specify which categories they wish to receive messages from
+-Write and manage messages in English and Georgian.
+
+This application was originally developed by Transparency International - Georgia to provide instant updates about the Georgian Parliament.
+
+This is an app for the RapidSMS framework text messaging framework. To learn more about the framework, visit http://docs.rapidsms.org
