@@ -31,7 +31,7 @@ class AddMobileHandler(KeywordHandler):
         # Slice text into array by spaces
         params = text.split(' ', 4)
         # Check for proper formatting (pretty strictly)
-        if((len(params) < 5 or len(params[1]) != 12 or len(params[2]) != 2) 
+        if((len(params) < 5 or len(params[1]) != 13 or len(params[2]) != 2) 
            or 
            (params[2] != "en" and params[2] != "ka") or 
            (params[3] != "False" and params[3] != "True")):
