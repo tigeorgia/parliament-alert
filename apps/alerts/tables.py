@@ -19,7 +19,7 @@ class AlertTable(Table):
     lastSent = Column(value = lambda c: c.row.sent_date,name="Last sent")
 
     class Meta:
-        order_by = "-sent_date"
+        order_by = "-create_date"
         per_page = 50
 
 class SendAttemptsTable(Table):
