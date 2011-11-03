@@ -57,22 +57,27 @@ INSTALLED_BACKENDS = {
     "message_tester": {
         "ENGINE": "rapidsms.backends.bucket",
     },
-    "email": {
-        "ENGINE": "rapidsms.backends.email",
-        "smtp_host": "parliament.transparency.ge",
-        "smtp_port": 25,
-        "imap_host": "parliament.transparency.ge",
-        "imap_port": 143,
-        "username": "alerts@parliament.transparency.ge",
-        "password": "xW3yAopL",
-        "use_tls": "False",
-    },# Hacking RapidSMS because our hosting provider is stupid and
-                            # can't get secure IMAP working.
-    "gsm": {
-        "ENGINE": "rapidsms.backends.gsm",
-        "PORT": "/dev/ttyUSB0",
-        "BAUDRATE": "115200",
+    # tweet to http://twitter.com/SebastianTIG
+    'twitter': {
+        'ENGINE': 'parliament.backends.twitter',
     },
+
+#    "email": {
+#        "ENGINE": "rapidsms.backends.email",
+#        "smtp_host": "parliament.transparency.ge",
+#        "smtp_port": 25,
+#        "imap_host": "parliament.transparency.ge",
+#        "imap_port": 143,
+#        "username": "alerts@parliament.transparency.ge",
+#        "password": "S2DRVU2hg2",
+#        "use_tls": "False",
+#    },# Hacking RapidSMS because our hosting provider is stupid and
+                            # can't get secure IMAP working.
+#    "gsm": {
+#        "ENGINE": "rapidsms.backends.gsm",
+#        "PORT": "/dev/ttyUSB0",
+#        "BAUDRATE": "115200",
+#    },
 }
 
 
@@ -127,8 +132,8 @@ RAPIDSMS_TABS = [
     ("rapidsms.contrib.messagelog.views.message_log",       "Message Log"),
     #("rapidsms.contrib.registration.views.registration",    "Registration"),
     ("rapidsms.contrib.messaging.views.messaging",          "Messaging"),
-    ("rapidsms.contrib.locations.views.locations",          "Map"),
-    ("rapidsms.contrib.scheduler.views.index",              "Event Scheduler"),
+    #("rapidsms.contrib.locations.views.locations",          "Map"),
+    #("rapidsms.contrib.scheduler.views.index",              "Event Scheduler"),
     ("rapidsms.contrib.httptester.views.generate_identity", "Message Tester"),
     ("parliament.apps.categories.views.categories",         "Categories"),
     ("parliament.apps.alerts.views.alerts",                 "Alerts"),
