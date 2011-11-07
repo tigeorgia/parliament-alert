@@ -76,6 +76,9 @@ class TwitterError (Exception):
 
 
 class TwitterBackend(BackendBase):
+    len_max = 140
+    trail = ' ...' # trailing chars for oversized messages
+
     def configure(self, consumer_key=False, consumer_secret=False, access_token=False, access_secret=False):
         if tweepy is None:
             raise ImportError(
@@ -102,9 +105,16 @@ class TwitterBackend(BackendBase):
         auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
         auth.set_access_token(access_token, access_secret)
         api = tweepy.API(auth)
+
+        if len(msg.text) > self.len_max:
+            last = self.len_max - len(self.trail)
+            tweet = msg.text[:last] + self.trail
+        else:
+            tweet = msg.text
+
         try:
             self.debug('send: tweet')
-            api.update_status(msg.text)
+            api.update_status(tweet)
             return True
         except tweepy.error.TweepError, e:
             raise TwitterError(e)
