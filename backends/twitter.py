@@ -27,7 +27,7 @@ It is also advisable to have south installed (http://south.aeracode.org/).
 
 2) Unfortunately, the default identiy field is not long enough (only 100 chars)
 for a complete OAuth credential string, so we have to extend RapidSMS'
-connection class.Put the directory 'extensions/' into apps/<name>/ and run
+connection class. Put the directory 'extensions/' into apps/<name>/ and run
 
 $ python manage.py schemamigration rapidsms --auto
 
@@ -35,7 +35,7 @@ to create an appropriate migration, followed by
 
 $ python manage.py migrate rapidsms
 
-to migrate the database and a field oauth to the Connection model.
+to migrate the database and add a field oauth to the Connection model.
 
 
 3) Then you need to append 'twitter' to the list of available backends in
@@ -60,6 +60,7 @@ editing the connection for your contact details in the format:
 
 consumer_key:consumer_secret:access_token:access_secret
 
+Add as many twitter contacts as you like!
 """
 
 from rapidsms.backends.base import BackendBase
