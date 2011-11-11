@@ -9,7 +9,7 @@ from parliament.apps.categories.models import Category
 
 # The inverse of Register; allows users to leave a list, or leave everything.
 class RemoveHandler(KeywordHandler):
-    en_keyword = "leave|unsubscribe|remove|quit"
+    en_keyword = "leave|unsubscribe|remove|quit|stop"
     ka_keyword = "gamosvla|sheckveta|washla|amowera|tsashla|datovet|datoveba"
     keyword = en_keyword + "|" + ka_keyword
 
