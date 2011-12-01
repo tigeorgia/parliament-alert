@@ -8,7 +8,7 @@ from parliament.apps.categories.models import Category
 
 
 class AlertForm(forms.ModelForm):
-    regex_text = re.compile('[^a-zA-Z0-9\.,;:\ \'\"\?\-]')
+    regex_text = re.compile('[^a-zA-Z0-9\.,;:\ \'\"\?\-\/]')
 
     class Meta:
         model = ParliamentAlert
