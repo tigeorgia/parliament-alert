@@ -46,6 +46,8 @@ class RegisterHandler(KeywordHandler):
         cats = Category.objects.all()
         matched_cats = []
         keywords = text.split(' ')
+        # remove punctuation dot as last char
+        if keywords[-1][-1] == '.': keywords[-1] = keywords[-1][:-1]
 
         for key in keywords:
             if key.upper() == 'ALL' or key.upper() == 'YVELAS' or key.upper() == 'YVELA':

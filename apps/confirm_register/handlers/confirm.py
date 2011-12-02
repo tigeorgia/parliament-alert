@@ -5,7 +5,9 @@ from django.utils.translation import ugettext as _
 class ConfirmHandler(KeywordHandler):
     """Handles confirmation messages from people who have
     been added with the web interface."""
-    keyword = "confirm|damowmeba|dadastureba|vadastureb|vadaztureb|'vadastureb'"
+    en_keyword = "confirm"
+    ka_keyword = "damowmeba|dadastureba|vadastureb|vadaztureb|'vadastureb'|\"vadastureb\""
+    keyword = "(" + en_keyword + "|" + ka_keyword + ")\.?"
 
     def help(self):
         self.handle("")

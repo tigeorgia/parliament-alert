@@ -31,6 +31,8 @@ class LanguageHandler(KeywordHandler):
             return self.respond_error(_("You must send JOIN before you can set your language preference."))
 
         t = text.lower()
+        if t[-1] == '.': t = t[:-1] # remove dot as last char.
+
         for code, name in settings.LANGUAGES:
             if t != code.lower() and t != name.lower():
                 continue
