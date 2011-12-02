@@ -83,7 +83,10 @@ class AddMobileHandler (KeywordHandler):
         self.connections = Connection.objects.filter(identity=params[1])
         duplicates = self.connections.filter(contact__isnull=False)
         if len(duplicates) > 0:
-            msg = _('Phone number already exists. Try')
+            msg = _('Phone number already exists.')
+            if not duplicates[0].contact.is_active:
+                msg += ' ' + _('Maybe you meant "confirm"?')
+            msg += ' ' + _('Try')
             example = self._example(name=params[0], lang=params[2],
                 only_important=params[3], categories=params[4])
             raise ParamError(self.errfmt % (6, msg, example))
