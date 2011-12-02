@@ -7,6 +7,9 @@
 # -------------------------------------------------------------------- #
 #import os,sys
 
+TIME_ZONE = 'Asia/Tbilisi'
+USE_TZ = True
+
 #sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 # you should configure your database here before doing any real work.
