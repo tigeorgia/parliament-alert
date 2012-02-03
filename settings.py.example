@@ -19,7 +19,7 @@ DATABASES = {
 }
 
 SOUTH_MIGRATION_MODULES = {
-    'rapidsms': 'parliament.migration',
+    'rapidsms': 'migration',
 }
 
 ugettext = lambda s: s
@@ -46,7 +46,7 @@ INSTALLED_BACKENDS = {
         "ENGINE": "rapidsms.backends.bucket",
     },
     'twitter': {
-        'ENGINE': 'parliament.backends.twitter',
+        'ENGINE': 'backends.twitter',
     },
     "email": {
         "ENGINE": "rapidsms.backends.email",
