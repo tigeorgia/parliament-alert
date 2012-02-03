@@ -102,10 +102,10 @@ INSTALLED_APPS = [
     "south",
 
     # in-house
-    "parliament.apps.categories",
-    "parliament.apps.alerts",
-    "parliament.apps.confirm_register",
-    "parliament.apps.registration",
+    "apps.categories",
+    "apps.alerts",
+    "apps.confirm_register",
+    "apps.registration",
 ]
 
 
@@ -119,8 +119,8 @@ RAPIDSMS_TABS = [
     #("rapidsms.contrib.locations.views.locations",          "Map"),
     #("rapidsms.contrib.scheduler.views.index",              "Event Scheduler"),
     ("rapidsms.contrib.httptester.views.generate_identity", "Message Tester"),
-    ("parliament.apps.categories.views.categories",         "Categories"),
-    ("parliament.apps.alerts.views.alerts",                 "Alerts"),
+    ("apps.categories.views.categories",         "Categories"),
+    ("apps.alerts.views.alerts",                 "Alerts"),
 ]
 
 

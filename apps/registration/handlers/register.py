@@ -4,8 +4,8 @@
 from rapidsms.contrib.handlers.handlers.keyword import KeywordHandler
 from rapidsms.models import Contact, Connection, Backend
 from django.utils.translation import ugettext as _
-from parliament.apps.registration.utils import en_or_ka
-from parliament.apps.categories.models import Category
+from apps.registration.utils import en_or_ka
+from apps.categories.models import Category
 
 # A multilingual version of registration, plus signing up for categories
 class RegisterHandler(KeywordHandler):

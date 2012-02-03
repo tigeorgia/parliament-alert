@@ -6,7 +6,7 @@ from rapidsms.contrib.handlers.handlers.keyword import KeywordHandler
 from rapidsms.models import Contact
 from rapidsms.conf import settings
 from django.utils.translation import ugettext as _
-from parliament.apps.registration.utils import en_or_ka
+from apps.registration.utils import en_or_ka
 
 class LanguageHandler(KeywordHandler):
     """

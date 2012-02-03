@@ -2,8 +2,8 @@ import re
 from django import forms
 from django.utils.translation import ugettext as _
 
-from parliament.apps.alerts.models import ParliamentAlert
-from parliament.apps.categories.models import Category
+from apps.alerts.models import ParliamentAlert
+from apps.categories.models import Category
 
 
 

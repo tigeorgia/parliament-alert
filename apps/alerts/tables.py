@@ -1,6 +1,6 @@
 from django.core.urlresolvers import reverse
 from djtables import Table, Column
-from parliament.apps.alerts.models import ParliamentAlert
+from apps.alerts.models import ParliamentAlert
 from rapidsms.models import Contact
 
 def _edit_link(cell):

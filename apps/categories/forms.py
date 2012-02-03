@@ -1,5 +1,5 @@
 from django import forms
-from parliament.apps.categories.models import Category
+from apps.categories.models import Category
 
 class CategoryForm(forms.ModelForm):
     name = forms.CharField(

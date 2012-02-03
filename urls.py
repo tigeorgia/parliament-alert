@@ -28,8 +28,8 @@ urlpatterns = patterns('',
     (r'^scheduler/', include('rapidsms.contrib.scheduler.urls')),
 
     # in-house
-    (r'^categories/', include('parliament.apps.categories.urls')),
-    (r'^alerts/', include('parliament.apps.alerts.urls')),
+    (r'^categories/', include('apps.categories.urls')),
+    (r'^alerts/', include('apps.alerts.urls')),
 )
 
 if settings.DEBUG:

@@ -2,7 +2,7 @@ from rapidsms.apps.base import AppBase
 from rapidsms.log.mixin import LoggerMixin
 from rapidsms.models import Connection, Contact
 from rapidsms.messages.outgoing import OutgoingMessage
-from parliament.apps.alerts.models import ParliamentAlert, AlertSendAttempt
+from apps.alerts.models import ParliamentAlert, AlertSendAttempt
 import json
 
 class App (AppBase, LoggerMixin):

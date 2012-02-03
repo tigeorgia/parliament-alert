@@ -3,7 +3,7 @@
 
 from rapidsms.contrib.handlers.handlers.keyword import KeywordHandler
 from django.utils.translation import ugettext as _
-from parliament.apps.registration.utils import en_or_ka
+from apps.registration.utils import en_or_ka
 
 class ThanksHandler(KeywordHandler):
     """

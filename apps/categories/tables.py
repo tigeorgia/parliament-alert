@@ -1,6 +1,6 @@
 from django.core.urlresolvers import reverse
 from djtables import Table, Column
-from parliament.apps.categories.models import Category
+from apps.categories.models import Category
 
 def _edit_link(cell):
     return reverse(
