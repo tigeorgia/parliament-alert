@@ -7,3 +7,27 @@ Allows the creation of what are essentially mailing lists using RapidSMS. Featur
 This application was originally developed by Transparency International - Georgia to provide instant updates about the Georgian Parliament.
 
 This is an app for the RapidSMS framework text messaging framework. To learn more about the framework, visit http://docs.rapidsms.org
+
+
+
+INSTALL
+=======
+
+Requirements
+------------
+$ apt-get install python-django python-django-south python-tweepy
+$ git clone https://github.com/rapidsms/rapidsms.git
+$ cd rapidsms && sudo python setup.py install && cd
+
+Quick Install
+-------------
+$ git clone git@github.com:tigeorgia/parliament-alert.git
+$ cd parliament-alert
+$ cp settings.py.example settings.py
+$ vim settings.py # adapt to your needs
+$ python manage.py syncdb
+$ python manage.py migrate
+$ python manage.py runrouter
+$ python manage.py runserver
+
+Alternatively, you can use supervisor to run the router & webserver.
