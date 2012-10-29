@@ -59,7 +59,11 @@ class RegisterHandler(KeywordHandler):
                 if cat.matchesKeyword(key):
                     matched_cats.append(cat)
                     cats = cats.exclude(id=cat.id)
-        
+
+        for c in matched_cats: # Don't allow signup for debug.
+            if c.matchesKeyword("DEBUG"):
+                matched_cats.remove(c)
+                break
         if len(matched_cats) == 0:
             cats = Category.objects.all().order_by('?')[:2]
             examples = ""
