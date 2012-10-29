@@ -45,18 +45,30 @@ def send(req, pk):
     alert = get_object_or_404(ParliamentAlert, pk=pk)
 
     if req.method == "POST":
-        response = utils.send_alert(alert)
+        if(alert.is_important == True):
+            recipients = Contact.objects.all()
+        else:
+            recipients = Contact.objects.filter(only_important=False)
+        recipients = recipients.filter(categories__in=alert.categories.all()).filter(is_active=True)
+        sent_to = AlertSendAttempt.objects.filter(success=True).filter(alert=alert.id).distinct().values_list('contact',flat=True)
+        recipients = recipients.exclude(id__in=sent_to)
+
         succ_cnt = 0
         fail_cnt = 0
-        for atmpt in response["results"]:
-            contact, success = atmpt #Tuple unpacking
-            if(success): 
-                succ_cnt += 1
-            else: 
-                fail_cnt += 1
-            # Save attempts to db
-            a = AlertSendAttempt(contact=Contact.objects.get(pk=contact),alert=alert,success=success)
-            a.save()
+        for contact in recipients:
+            try:
+                response = utils.send_alert(alert,contact)
+                a = AlertSendAttempt(contact=contact,alert=alert,success=response["success"])
+                a.save()
+                if (response["success"] == True):
+                    succ_cnt += 1
+                else:
+                    fail_cnt += 1
+                # Save attempts to db
+            except:
+                a = AlertSendAttempt(contact=contact,alert=alert,success=False)
+                a.save()
+                raise
         if succ_cnt > 0:
             alert.sent_date = datetime.now()
             alert.save()
